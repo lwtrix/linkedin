@@ -3,15 +3,17 @@
     align-items: center;
     justify-content: space-between;
     margin: 5px 20px;
+    color: grey;
 }
 
 .post-controls .control-container {
     padding: 10px 15px;
     border-radius: 3px;
+    transition: .2s;
 }
 
 .post-controls .control-container:hover {
-    background-color: rgba(204, 204, 204, 0.431);
+    background-color: rgba(204, 204, 204, 0.479);
     cursor: pointer;
 }
 
