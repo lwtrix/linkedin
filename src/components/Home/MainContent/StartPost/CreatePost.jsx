@@ -1,5 +1,5 @@
 import React from 'react'
-import '../../../css/main-content/create-post.css'
+import '../../../css/main-content/start-post/create-post.css'
 
 export const CreatePost = () => {
   return (
