@@ -1,0 +1,42 @@
+#navBarLogo {
+height: 40px
+}
+
+#navBar{
+    padding: 2px;
+    padding-inline: 1%;
+background-color: white;
+
+}
+.navBarIcons{
+    display: flex;
+    flex-direction: column;
+    color: rgb(98, 97, 97);
+    font-weight: 400;
+    font-size: 16px;
+    align-items: center;
+    cursor: pointer;
+}
+
+.navBarIcons:hover{
+    color: black
+}
+
+.navBarIcons-icon a{
+    font-size: 25px;
+    color: rgb(98, 97, 97);
+}
+.navBarIcons-icon a:hover {
+    color: black
+}
+#imageContainer{
+    height: 30px;
+    width: 30px;
+    border-radius: 15px;
+    overflow: hidden;
+}
+#imageContainer img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
