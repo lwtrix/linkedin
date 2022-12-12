@@ -2,6 +2,6 @@ import React from 'react'
 
 export const MainContent = () => {
   return (
-    <div>MainContent</div>
+    <div><h1>Main Content</h1></div>
   )
 }
