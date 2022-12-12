@@ -10,6 +10,7 @@ export const MainContent = () => {
         <JobSearch />
         <StartPost />
         <UserPost />
+        <UserPost />
     </div>
   )
 }

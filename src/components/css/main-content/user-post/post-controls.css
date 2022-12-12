@@ -1,0 +1,22 @@
+.post-controls {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 5px 20px;
+}
+
+.post-controls .control-container {
+    padding: 10px 15px;
+    border-radius: 3px;
+}
+
+.post-controls .control-container:hover {
+    background-color: rgba(204, 204, 204, 0.431);
+    cursor: pointer;
+}
+
+.post-controls .control-container .icon {
+    font-size: 18px;
+    margin-right: 5px;
+    transform: translateY(-2px);
+}

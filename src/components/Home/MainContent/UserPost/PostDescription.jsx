@@ -1,7 +1,10 @@
 import React from 'react'
+import '../../../css/main-content/user-post/post-description.css'
 
 export const PostDescription = () => {
   return (
-    <div>PostDescription</div>
+    <div className='post-description'>
+        <p className='text'>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Est repellat esse numquam natus quisquam non impedit magnam, architecto accusamus eius iste molestiae cum omnis ut nobis amet odio a deserunt?</p>
+    </div>
   )
 }
