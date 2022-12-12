@@ -1,5 +1,7 @@
-import React from "react";
+import React from 'react'
 
 export const LeftSideBar = () => {
-  return <div>LeftSideBar modification</div>;
-};
+  return (
+    <div>LeftSideBar</div>
+  )
+}
