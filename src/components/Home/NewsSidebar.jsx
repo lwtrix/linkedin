@@ -1,7 +1,10 @@
-import React from 'react'
+import React from "react";
 
 export const NewsSidebar = () => {
   return (
-    <div>NewsSidebar</div>
-  )
-}
+    <div>
+      NewsSidebar.
+      <h1>whats up</h1>
+    </div>
+  );
+};
