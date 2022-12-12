@@ -14,6 +14,7 @@ import { TbMessageCircle } from "react-icons/tb";
 import { IoNotificationsSharp } from "react-icons/io5";
 import { ImSearch } from "react-icons/im";
 import { BsFillGrid3X3GapFill } from "react-icons/bs";
+import { IoMdArrowDropdown } from "react-icons/io";
 export const NavBar = () => {
   return (
     <Navbar expand="lg" id="navBar">
@@ -75,15 +76,18 @@ export const NavBar = () => {
           <div className="navBarIcons-text">Notifications</div>
         </div>
         <div className="navBarIcons">
-          <div className="navBarIcons-icon" id="imageContainer">
-            <Link href="#action1">
+          <div className="navBarIcons-icon imageContainer mt-2">
+            <Link href="#action1" classname="imageContainer">
               <img
                 alt="profile"
                 src="https://i.pinimg.com/736x/b8/7d/b9/b87db90ee0193b5d963ed688bf390dc9--old-faces-koppen.jpg"
               />
             </Link>
           </div>
-          <div className="navBarIcons-text">You</div>
+          <div className="navBarIcons-text">
+            You
+            <IoMdArrowDropdown />
+          </div>
         </div>
         <div className="navBarIcons">
           <div className="navBarIcons-icon">
@@ -91,7 +95,10 @@ export const NavBar = () => {
               <BsFillGrid3X3GapFill />
             </Link>
           </div>
-          <div className="navBarIcons-text">Work</div>
+          <div className="navBarIcons-text">
+            Work
+            <IoMdArrowDropdown />
+          </div>
         </div>
       </Container>
     </Navbar>

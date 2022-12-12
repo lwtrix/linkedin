@@ -29,14 +29,13 @@ background-color: white;
 .navBarIcons-icon a:hover {
     color: black
 }
-#imageContainer{
+.imageContainer{
     height: 30px;
     width: 30px;
     border-radius: 15px;
     overflow: hidden;
 }
-#imageContainer img{
+.imageContainer img{
     width: 100%;
-    height: 100%;
     object-fit: cover;
 }
