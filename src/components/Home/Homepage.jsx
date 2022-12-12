@@ -1,4 +1,5 @@
 import React from "react";
+import '../css/homepage/homepage.css'
 import { Col, Container, Row } from "react-bootstrap";
 import { LeftSideBar } from "./LeftSideBar";
 import { MainContent } from "./MainContent";
@@ -6,7 +7,6 @@ import { NewsSidebar } from "./NewsSidebar";
 
 const Homepage = () => {
   return (
-    <Container>
       <Row className="text-center">
         <Col>
           <LeftSideBar />
@@ -18,7 +18,6 @@ const Homepage = () => {
           <NewsSidebar />
         </Col>
       </Row>
-    </Container>
   );
 };
 
