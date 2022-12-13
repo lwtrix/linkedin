@@ -1,6 +1,5 @@
 .borderGrayWork{
     border: solid rgb(188, 186, 186) 1px;
-    padding: 20px;
     border-radius: 20px;
     display: flex;
     flex-direction: column;
@@ -9,12 +8,13 @@
    
 
     #dropDownWork-title-sticky{
+        margin-top: -30px;
         position: sticky;
-        top: 0;
-        padding: 10px;
+        top: -30px;
+        padding: 18px;
         display: flex;
         justify-content: space-between;
-        align-items: center;
+        align-items: baseline;
         background-color: white;
     }
     #dropDownWork-title-x{
@@ -22,28 +22,74 @@
         font-weight: 500;
     }
 .flex-rowWork{
+    padding: 20px;
+
     display: flex;
     flex-direction: row;
     align-items: center;
-    gap: 10px
+    gap: 20px;
+    flex-wrap: wrap;
+    
 }
 .outsideElement{
     display: flex;
     flex-direction: column;
     align-items: center;
-}
+    width: 20%;
 
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+.text{
+    height: 1.5em;
+}
 .dropDownWork-subtitle1{
-    border-bottom: solid rgb(188, 186, 186) 1px;
+    border-bottom: solid rgb(211, 211, 211) 1px;
     padding: 5px;
+    padding: 20px;
+
 }
 
 #bottomSubtitle{
     border-top: solid rgb(188, 186, 186) 1px;
 display: flex;
-gap: 20px
+gap: 20px;
+padding: 20px;
+align-items: baseline;
+
 }
-#dropDownWork-overflow-scroll{
-    overflow-y: scroll;
-    height: 83vh;
+
+#dropDownlist{
+    padding: 20px;
+
+}
+.icons{
+    padding: 4px;
+    border: solid rgb(188, 186, 186) 1px;
+    border-radius: 5px;
+
+}
+.icons:hover{
+    box-shadow: 3px 3px 3px 3px lightgray;
+}
+.list-element a h6{
+    text-decoration: none;
+    color: black;
+}
+.list-element a p{
+    text-decoration: none;
+    color: rgb(98, 97, 97);
+    
+}
+
+.list-element:hover a p{
+    text-decoration: underline blue;
+    
+}
+.list-element:hover a h6{
+    text-decoration: underline blue;
+    
+}
+#plus-symbol{
+    font-size: 20px;
 }

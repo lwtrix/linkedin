@@ -18,6 +18,7 @@ import { IoMdArrowDropdown } from "react-icons/io";
 import { YouDropDown } from "./YouDropDown";
 import { WorkDropDown } from "./WorkDropDown";
 import { useState, useEffect } from "react";
+import { Badge } from "react-bootstrap";
 export const NavBar = () => {
   const [youDropDown, setyouDropDown] = useState("off");
   const [workDropDown, setworkDropDown] = useState("off");
@@ -33,8 +34,17 @@ export const NavBar = () => {
               src="https://th.bing.com/th/id/R.be68438baf34312fb5f2683e13dd0551?rik=kblECYrU2iHeVA&pid=ImgRaw&r=0"
             />
           </Link>
-
-          <div className="navBarIcons">
+          <div id="navbar-search-bar">
+            <div>
+              <ImSearch />
+            </div>
+            <div>
+              <input type="search" placeholder="Search" id="no-outline" />
+            </div>
+          </div>
+        </div>
+        <div className="navBarDisplayFlex" id="navbar-flex-icons-container">
+          <div className="navBarIcons" id="navbar-display-none">
             <div className="navBarIcons-icon">
               <Link href="#action1">
                 <ImSearch />
@@ -42,12 +52,13 @@ export const NavBar = () => {
             </div>
             <div className="navBarIcons-text">Search</div>
           </div>
-        </div>
-        <div className="navBarDisplayFlex">
           <div className="navBarIcons">
             <div className="navBarIcons-icon">
               <Link href="#action1">
                 <AiFillHome />
+                <Badge bg="danger" className="navBarBadge">
+                  1
+                </Badge>
               </Link>
             </div>
             <div className="navBarIcons-text">Home</div>
@@ -56,6 +67,9 @@ export const NavBar = () => {
             <div className="navBarIcons-icon">
               <Link href="#action2">
                 <MdPeopleAlt />
+                <Badge bg="danger" className="navBarBadge">
+                  1
+                </Badge>
               </Link>
             </div>
             <div className="navBarIcons-text">Web</div>
@@ -64,6 +78,9 @@ export const NavBar = () => {
             <div className="navBarIcons-icon">
               <Link href="#action1">
                 <MdWork />
+                <Badge bg="danger" className="navBarBadge">
+                  1
+                </Badge>
               </Link>
             </div>
             <div className="navBarIcons-text">Work</div>
@@ -72,6 +89,9 @@ export const NavBar = () => {
             <div className="navBarIcons-icon">
               <Link href="#action2">
                 <TbMessageCircle />
+                <Badge bg="danger" className="navBarBadge">
+                  1
+                </Badge>
               </Link>
             </div>
             <div className="navBarIcons-text">Message</div>
@@ -80,6 +100,9 @@ export const NavBar = () => {
             <div className="navBarIcons-icon">
               <Link href="#action1">
                 <IoNotificationsSharp />
+                <Badge bg="danger" className="navBarBadge">
+                  1
+                </Badge>
               </Link>
             </div>
             <div className="navBarIcons-text">Notifications</div>
@@ -90,6 +113,11 @@ export const NavBar = () => {
                 <img
                   alt="profile"
                   src="https://i.pinimg.com/736x/b8/7d/b9/b87db90ee0193b5d963ed688bf390dc9--old-faces-koppen.jpg"
+                  onClick={(e) => {
+                    youDropDown !== "on"
+                      ? setyouDropDown("on")
+                      : setyouDropDown("off");
+                  }}
                 />
               </Link>
             </div>
@@ -113,12 +141,21 @@ export const NavBar = () => {
           </div>
           <div className="navBarDisplayFlex" id="navBarWorkRightSide">
             <div className="navBarIcons">
-              <div className="navBarIcons-icon">
+              <div className="navBarIcons-icon ml-1">
                 <Link href="#action1">
-                  <BsFillGrid3X3GapFill />
+                  <Badge bg="danger" className="navBarBadge">
+                    1
+                  </Badge>
+                  <BsFillGrid3X3GapFill
+                    onClick={(e) => {
+                      workDropDown !== "on"
+                        ? setworkDropDown("on")
+                        : setworkDropDown("off");
+                    }}
+                  />
                 </Link>
               </div>
-              <div className="navBarIcons-text">
+              <div className="navBarIcons-text ml-1">
                 Work
                 <IoMdArrowDropdown
                   onClick={(e) => {

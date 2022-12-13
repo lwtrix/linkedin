@@ -10,6 +10,7 @@ position: sticky;
 top: 0;
 z-index: 2;
 margin-bottom: 30px;
+height: 62px;
 
 }
 .navBarIcons{
@@ -21,12 +22,37 @@ margin-bottom: 30px;
     align-items: center;
     cursor: pointer;
     flex-grow: 1;
+    padding-inline: 0;
 }
 
 .navBarIcons:hover{
     color: black
 }
-
+.navBarIcons-icon{
+    position: relative;
+}
+.navBarBadge{
+    position: absolute;
+    top:10px;
+    right: -5px;
+    border-radius: 50%;
+    height: 14px;
+    width: 14px;
+    overflow: hidden;
+    text-align: center;
+    font-size: 8px;
+}
+.navBarBadgeSpecific{
+    position: absolute;
+    top:6px;
+    right: 18px;
+    border-radius: 50%;
+    height: 14px;
+    width: 14px;
+    overflow: hidden;
+    text-align: center;
+    font-size: 8px;
+}
 .navBarIcons-icon a{
     font-size: 25px;
     color: rgb(98, 97, 97);
@@ -93,12 +119,73 @@ margin-bottom: 30px;
     border-bottom-left-radius: 20px;
     border: solid rgb(188, 186, 186) 1px;
     overflow: hidden;
-    padding: 20px;
+    padding: 30px;
     transition-timing-function: ease-in;
-
+    overflow-y: scroll;
+    height: 89vh;
   transition: 0.5s;
-
   transform: translateX(-500px);
 
 
 }
+#navbar-search-bar{
+    display: flex;
+    background-color: rgb(232, 244, 255);
+    border-radius: 5px;
+    height: 100%;
+    align-items: center;
+    gap: 20px;
+    padding: 5px;
+    padding-inline: 20px;
+    overflow: hidden;
+    margin-left: 15px;
+}
+
+#navbar-search-bar input{
+background-color: transparent;
+flex-grow: 1;
+border: solid transparent 0px;
+}
+
+#navbar-flex-icons-container{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    flex-grow: 1;
+}
+
+  #no-outline:focus {
+    outline: none;
+  }
+ 
+    @media screen and (min-width: 1024px) {
+        #navbar-display-none {
+            display: none;
+        }
+      }
+
+      @media screen and (max-width: 1024px) {
+        #navbar-search-bar {
+            display: none;
+        }
+        
+      }
+      
+      @media screen and (max-width: 990px) {
+        #navbar-flex-icons-container{
+            width: 90%;
+            display: flex;
+            justify-content: space-between;
+            flex-grow: 1;
+        }
+      }
+      
+      
+      
+      
+      @media screen and (max-width: 850px) {
+        .navBarIcons-text {
+            display: none;
+        }
+      }
+      

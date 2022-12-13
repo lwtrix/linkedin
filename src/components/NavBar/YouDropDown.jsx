@@ -1,19 +1,33 @@
 import React from "react";
 import { Row, Col } from "react-bootstrap";
 import "../css/navBar/youDropDown.css";
+import { Button } from "react-bootstrap";
 export const YouDropDown = () => {
   return (
     <div>
       <div className="borderGray">
-        <h5>
-          <a>Francesco Stefan</a>
-        </h5>
-        <p>
-          Studying at Epicode school as a Fullstack Developer : React, Redux,
-          JS, Dom manipulation, CSS, HTML, Bootstrap.
-        </p>
+        <div id="youDropDown-profiledescription">
+          <div className="first-div">
+            <div id="youDropDownProfile">
+              <img
+                alt="profile"
+                src="https://i.pinimg.com/736x/b8/7d/b9/b87db90ee0193b5d963ed688bf390dc9--old-faces-koppen.jpg"
+              />
+            </div>
+          </div>
+          <div className="second-div">
+            <h5>
+              <a>Francesco Stefan</a>
+            </h5>
+            <p>
+              Studying at Epicode school as a Fullstack Developer : React,
+              Redux, JS, Dom manipulation, CSS, HTML, Bootstrap.
+            </p>
+          </div>
+        </div>
+        <Button id="youDropDown-button">Visualze Profile</Button>
       </div>
-      <div className="borderGray">
+      <div className="borderGray underline">
         <h5>Account</h5>
         <div className="flex-row">
           <div>
@@ -44,13 +58,13 @@ export const YouDropDown = () => {
         <div>Guide</div>
         <div>Language</div>
       </div>
-      <div className="borderGray">
+      <div className="borderGray underline">
         <div>Handle</div>
         <div>Post and Activity</div>
 
         <div>Account</div>
       </div>
-      <div className="borderGray" id="no-border">
+      <div className="borderGray underline" id="no-border">
         Exit
       </div>
     </div>
