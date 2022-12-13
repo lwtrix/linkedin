@@ -19,10 +19,18 @@ import { YouDropDown } from "./YouDropDown";
 import { WorkDropDown } from "./WorkDropDown";
 import { useState, useEffect } from "react";
 import { Badge } from "react-bootstrap";
+import { useNavigate } from "react-router-dom";
+import { useSelector, useDispatch } from "react-redux";
+import { getUserProfile } from "../../redux/actions";
 export const NavBar = () => {
   const [youDropDown, setyouDropDown] = useState("off");
   const [workDropDown, setworkDropDown] = useState("off");
-
+  const navigate = useNavigate();
+  const { user } = useSelector((state) => state.user);
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(getUserProfile());
+  }, []);
   return (
     <Navbar expand="lg" id="navBar">
       <Container fluid>
@@ -53,7 +61,7 @@ export const NavBar = () => {
             <div className="navBarIcons-text">Search</div>
           </div>
           <div className="navBarIcons">
-            <div className="navBarIcons-icon">
+            <div className="navBarIcons-icon" onClick={(e) => navigate("/")}>
               <Link href="#action1">
                 <AiFillHome />
                 <Badge bg="danger" className="navBarBadge">
@@ -109,17 +117,17 @@ export const NavBar = () => {
           </div>
           <div className="navBarIcons" id="youPositionRelative">
             <div className="navBarIcons-icon imageContainer mt-2">
-              <Link href="#action1" classname="imageContainer">
+              {user && (
                 <img
                   alt="profile"
-                  src="https://i.pinimg.com/736x/b8/7d/b9/b87db90ee0193b5d963ed688bf390dc9--old-faces-koppen.jpg"
+                  src={user.image}
                   onClick={(e) => {
                     youDropDown !== "on"
                       ? setyouDropDown("on")
                       : setyouDropDown("off");
                   }}
                 />
-              </Link>
+              )}
             </div>
             <div className="navBarIcons-text">
               <span>You</span>
@@ -140,19 +148,20 @@ export const NavBar = () => {
             )}
           </div>
           <div className="navBarDisplayFlex" id="navBarWorkRightSide">
-            <div className="navBarIcons">
+            <div
+              className="navBarIcons"
+              onClick={(e) => {
+                workDropDown !== "on"
+                  ? setworkDropDown("on")
+                  : setworkDropDown("off");
+              }}
+            >
               <div className="navBarIcons-icon ml-1">
                 <Link href="#action1">
                   <Badge bg="danger" className="navBarBadge">
                     1
                   </Badge>
-                  <BsFillGrid3X3GapFill
-                    onClick={(e) => {
-                      workDropDown !== "on"
-                        ? setworkDropDown("on")
-                        : setworkDropDown("off");
-                    }}
-                  />
+                  <BsFillGrid3X3GapFill />
                 </Link>
               </div>
               <div className="navBarIcons-text ml-1">
@@ -173,7 +182,10 @@ export const NavBar = () => {
               <div className="navBarIcons-text"></div>
               {workDropDown !== "off" ? (
                 <div id="workDropDown">
-                  <WorkDropDown />
+                  <WorkDropDown
+                    disappear={setworkDropDown}
+                    workDropDown={workDropDown}
+                  />
                 </div>
               ) : (
                 <div></div>
