@@ -5,9 +5,19 @@
     position: relative;
 }
 
-.user-info img {
+.user-info .img-container {
     width: 65px;
+    height: 65px;
+    overflow: hidden;
     border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.user-info img {
+    width: 100%;
+    height: auto;
 }
 
 .user-info .user-details {

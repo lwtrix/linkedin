@@ -1,7 +1,22 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import '../../../css/main-content/user-post/post-content.css'
 
 export const PostContent = () => {
+
+  const [images, setImages] = useState([]);
+
+  const getRandomImages = async () => {
+    const apiKey = '7CmE_4PcbCx1FWZDRUPdBruzRBUGsgGIJE5QhoqbFU0'
+    const res = await fetch(`https://api.unsplash.com/photos?page=1&per_page=16&client_id=${apiKey}`)
+    const data = await res.json()
+    console.log(data)
+    setImages(data)
+  }
+
+  useEffect(() => {
+    getRandomImages()
+  }, [])
+
   return (
     <div className='post-content'>
         <div className="post-img-container">
