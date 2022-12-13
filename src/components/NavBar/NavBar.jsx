@@ -122,7 +122,7 @@ export const NavBar = () => {
               </Link>
             </div>
             <div className="navBarIcons-text">
-              You
+              <span>You</span>
               <IoMdArrowDropdown
                 onClick={(e) => {
                   youDropDown !== "on"

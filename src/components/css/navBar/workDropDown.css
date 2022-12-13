@@ -5,8 +5,6 @@
     flex-direction: column;
     }
 
-   
-
     #dropDownWork-title-sticky{
         margin-top: -30px;
         position: sticky;
@@ -40,7 +38,7 @@
     text-overflow: ellipsis;
     overflow: hidden;
 }
-.text{
+.dropDownWork-overflow-scroll .text{
     height: 1.5em;
 }
 .dropDownWork-subtitle1{
