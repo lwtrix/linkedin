@@ -1,10 +1,14 @@
 import React from "react";
+import { Advertising } from "./NewsSideBar/Advertising/Advertising";
+import { Follow } from "./NewsSideBar/Follow/Follow";
+import { Footer } from "./NewsSideBar/Footer/Footer";
 
 export const NewsSidebar = () => {
   return (
-    <div>
-      NewsSidebar.
-      <h1>whats up</h1>
+    <div className="newsSideBar">
+      <Follow />
+      <Advertising />
+      <Footer />
     </div>
   );
 };
