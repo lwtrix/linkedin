@@ -13,10 +13,10 @@ export const PostStats = () => {
         <div className="icon-container">
           <FaThumbsUp className="icon" />
         </div>
-        <span className="likes-count">{randomCommsNum > 999 ? `${randomLikesNum.toString()[0]}k` : randomLikesNum}</span>
+        <span className="likes-count">{randomLikesNum > 999 ? `${randomLikesNum.toString()[0]}k` : randomLikesNum}</span>
       </div>
       <div className="comments-container">
-        <span className="text">68 comments</span>
+        <span className="text">{randomCommsNum} comments</span>
       </div>
     </div>
   );
