@@ -109,7 +109,7 @@ export const NavBar = () => {
           </div>
           <div className="navBarIcons" id="youPositionRelative">
             <div className="navBarIcons-icon imageContainer mt-2">
-              <Link href="#action1" classname="imageContainer">
+              <Link href="#action1" className="imageContainer">
                 <img
                   alt="profile"
                   src="https://i.pinimg.com/736x/b8/7d/b9/b87db90ee0193b5d963ed688bf390dc9--old-faces-koppen.jpg"

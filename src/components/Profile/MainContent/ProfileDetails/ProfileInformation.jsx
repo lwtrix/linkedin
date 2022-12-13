@@ -57,7 +57,7 @@ export const ProfileInformation = () => {
           </Row>
 
           <ProffesionalBanners />
-          <EditProfileModal
+          <EditProfileModal 
             user={user}
             show={showEditModal}
             handleClose={handleClose}
