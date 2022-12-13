@@ -1,0 +1,20 @@
+#youDropdown{
+    position: absolute;
+    top:70px;
+    right: 0px;
+    width: 300px;
+    background-color: white;
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+border: solid gray 1px
+
+}
+
+.borderGray{
+border-bottom: solid rgb(188, 186, 186) 1px;
+padding: 20px
+}
+#no-border{
+    border-bottom: solid transparent 0px;
+}

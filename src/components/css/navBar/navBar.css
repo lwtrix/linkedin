@@ -3,9 +3,13 @@ height: 40px
 }
 
 #navBar{
-    padding: 2px;
+    padding: 0;
     padding-inline: 1%;
 background-color: white;
+position: sticky;
+top: 0;
+z-index: 2;
+margin-bottom: 30px;
 
 }
 .navBarIcons{
@@ -16,6 +20,7 @@ background-color: white;
     font-size: 16px;
     align-items: center;
     cursor: pointer;
+    flex-grow: 1;
 }
 
 .navBarIcons:hover{
@@ -38,4 +43,62 @@ background-color: white;
 .imageContainer img{
     width: 100%;
     object-fit: cover;
+}
+
+.navBarDisplayFlex{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    flex-grow: 1;
+}
+
+#navBarWorkRightSide{
+    border-left: solid rgb(188, 186, 186) 1px;
+    
+}
+#navBarTextOrange a{
+    color: rgb(173, 147, 3);
+    font-size: 16px;
+    position: relative;
+}
+#navBarTextOrange a:hover{
+    color: rgb(59, 50, 2);
+}
+#youPositionRelative{
+    position: relative;
+}
+
+#youDropdown{
+    position: absolute;
+    top:70px;
+    right: 0px;
+    width: 300px;
+    background-color: white;
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+    border: solid rgb(188, 186, 186) 1px;
+    overflow: hidden
+
+
+}
+
+#workDropDown{
+    position: absolute;
+    right: -500px;
+    top: 62px;
+    width: 500px;
+    background-color: white;
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+    border: solid rgb(188, 186, 186) 1px;
+    overflow: hidden;
+    padding: 20px;
+    transition-timing-function: ease-in;
+
+  transition: 0.5s;
+
+  transform: translateX(-500px);
+
+
 }
