@@ -1,0 +1,28 @@
+.footer a {
+  font-size: 0.75rem;
+  padding-left: 7px;
+  padding-right: 7px;
+  text-decoration: none;
+  color: rgb(121, 121, 121);
+}
+
+.footer a:hover {
+  color: rgb(0, 140, 255);
+  text-decoration: underline;
+}
+
+.footer {
+  margin-top: 20px;
+}
+.footer .corporation .linkeIn {
+  display: flex;
+  justify-content: center;
+}
+.footer .corporation .linkeIn img {
+  width: 70px;
+}
+
+.footer .corporation .linkeIn p {
+  padding-top: 15px;
+  font-size: 0.8rem;
+}
