@@ -1,5 +1,5 @@
 #leftSideBarStyle{
-  width: 90%;
+  width: 80%;
   margin-left: auto;
   overflow: hidden;
   color:rgb(98, 97, 97)
@@ -11,6 +11,11 @@
   overflow: hidden;
   padding: 0;
   background-color: white;
+}
+.scrollListenerActive{
+  position: fixed!important;
+  top: 80px;
+  width: 20px
 }
 #profileInfoStyle{
   width: 100%;
