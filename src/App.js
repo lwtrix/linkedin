@@ -8,6 +8,7 @@ import Profile from './components/Profile/Profile';
 import { getUserProfile } from './redux/actions';
 import { useEffect } from "react";
 import { useDispatch } from "react-redux";
+import { EditExperiences } from "./components/Experiences/EditExperiences";
 
 function App() {
 
@@ -22,8 +23,8 @@ function App() {
       <NavBar />
       <Routes>
         <Route path="/" element={<Homepage />} />
-        <Route path='/' element={<Homepage />} />
         <Route path='/profile' element={<Profile />} />
+        <Route path='/profile/experiences' element={<EditExperiences />} />
       </Routes>
     </BrowserRouter>
   );
