@@ -8,8 +8,11 @@ import { BiSearchAlt2 } from "react-icons/bi";
 import { BsFilterLeft } from "react-icons/bs";
 import { useState } from "react";
 import { MdKeyboardArrowUp } from "react-icons/md";
+import MessageTextArea from "./MessageTextArea";
 const MessageBar = () => {
   const [arrow, setArrow] = useState("off");
+  const [write, setWrite] = useState("off");
+
   return (
     <div id={arrow !== "off" ? "messageBar" : "messageBar1"}>
       <div className="messageBarFlex" id="messageBarTitle">
@@ -29,7 +32,11 @@ const MessageBar = () => {
             <RxDotsHorizontal />
           </div>
           <div className="icon">
-            <TfiPencilAlt />
+            <TfiPencilAlt
+              onClick={(e) => {
+                write !== "off" ? setWrite("off") : setWrite("on");
+              }}
+            />
           </div>
           <div
             className="icon"
@@ -103,6 +110,7 @@ const MessageBar = () => {
           </div>
         </div>
       </div>
+      {write !== "off" ? <MessageTextArea setWrite={setWrite} /> : <div></div>}
     </div>
   );
 };
