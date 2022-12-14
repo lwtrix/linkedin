@@ -9,7 +9,7 @@ import { getUserProfile } from "./redux/actions";
 import { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { EditExperiences } from "./components/Experiences/EditExperiences";
-
+import MessageBar from "./components/MessageBar/MessageBar";
 function App() {
   const dispatch = useDispatch();
 
@@ -25,8 +25,8 @@ function App() {
 
         <Route path="/profile" element={<Profile />} />
         <Route path="/profile/experiences" element={<EditExperiences />} />
-       
       </Routes>
+      <MessageBar />
     </BrowserRouter>
   );
 }
