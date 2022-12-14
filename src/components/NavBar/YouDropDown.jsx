@@ -2,30 +2,40 @@ import React from "react";
 import { Row, Col } from "react-bootstrap";
 import "../css/navBar/youDropDown.css";
 import { Button } from "react-bootstrap";
+import { useNavigate } from "react-router-dom";
+import { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { getUserProfile } from "../../redux/actions";
 export const YouDropDown = () => {
+  const navigate = useNavigate();
+  const { user } = useSelector((state) => state.user);
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(getUserProfile());
+  }, []);
   return (
     <div>
       <div className="borderGray">
         <div id="youDropDown-profiledescription">
           <div className="first-div">
             <div id="youDropDownProfile">
-              <img
-                alt="profile"
-                src="https://i.pinimg.com/736x/b8/7d/b9/b87db90ee0193b5d963ed688bf390dc9--old-faces-koppen.jpg"
-              />
+              {user && <img alt="profile" src={user.image} />}
             </div>
           </div>
           <div className="second-div">
             <h5>
-              <a>Francesco Stefan</a>
+              {user && (
+                <a>
+                  {user.name} {user.surname}
+                </a>
+              )}
             </h5>
-            <p>
-              Studying at Epicode school as a Fullstack Developer : React,
-              Redux, JS, Dom manipulation, CSS, HTML, Bootstrap.
-            </p>
+            {user && <p>{user.bio}</p>}
           </div>
         </div>
-        <Button id="youDropDown-button">Visualze Profile</Button>
+        <Button id="youDropDown-button" onClick={(e) => navigate("/profile")}>
+          Visualze Profile
+        </Button>
       </div>
       <div className="borderGray underline">
         <h5>Account</h5>

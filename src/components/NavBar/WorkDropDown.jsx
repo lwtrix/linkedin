@@ -1,14 +1,21 @@
 import React from "react";
 import { Row, Col } from "react-bootstrap";
 import "../css/navBar/workDropDown.css";
-export const WorkDropDown = () => {
+export const WorkDropDown = ({ disappear, workDropDown }) => {
   return (
     <div id="dropDownWork-overflow-scroll">
       <div id="dropDownWork-title-sticky">
         <div id="dropDownWork-title">
           <h4>Work</h4>
         </div>
-        <div id="dropDownWork-title-x">x</div>
+        <div
+          id="dropDownWork-title-x"
+          onClick={(e) => {
+            workDropDown !== "on" ? disappear("on") : disappear("off");
+          }}
+        >
+          x
+        </div>
       </div>
       <div>
         <div className="borderGrayWork mt-3">

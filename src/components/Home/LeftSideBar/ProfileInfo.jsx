@@ -1,5 +1,15 @@
 import React from "react";
+import { useSelector, useDispatch } from "react-redux";
+import { useEffect } from "react";
+import { getUserProfile } from "../../../redux/actions";
 export const ProfileInfo = () => {
+  const { user } = useSelector((state) => state.user);
+  console.log(user);
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(getUserProfile());
+  }, []);
+
   return (
     <div id="profileInfoMain">
       <div id="profileInfoBackgroundImage">
@@ -11,18 +21,16 @@ export const ProfileInfo = () => {
 
       <div id="profileInfoBody">
         <div id="profileInfoPersonalImage">
-          <img
-            alt="profile"
-            src="https://i.pinimg.com/736x/b8/7d/b9/b87db90ee0193b5d963ed688bf390dc9--old-faces-koppen.jpg"
-          />
+          {user && <img alt="profile" src={user.image} />}
         </div>
         <h5>
-          <a>Francesco Stefan</a>
+          {user && (
+            <a>
+              {user.name} {user.surname}
+            </a>
+          )}
         </h5>
-        <p>
-          Studying at Epicode school as a Fullstack Developer : React, Redux,
-          JS, Dom manipulation, CSS, HTML, Bootstrap.
-        </p>
+        {user && <p>{user.bio}</p>}
       </div>
     </div>
   );
