@@ -117,17 +117,17 @@ export const NavBar = () => {
           </div>
           <div className="navBarIcons" id="youPositionRelative">
             <div className="navBarIcons-icon imageContainer mt-2">
-              {user && (
+              <Link href="#action1" className="imageContainer">
                 <img
                   alt="profile"
-                  src={user.image}
+                  src="https://i.pinimg.com/736x/b8/7d/b9/b87db90ee0193b5d963ed688bf390dc9--old-faces-koppen.jpg"
                   onClick={(e) => {
                     youDropDown !== "on"
                       ? setyouDropDown("on")
                       : setyouDropDown("off");
                   }}
                 />
-              )}
+              </Link>
             </div>
             <div className="navBarIcons-text">
               <span>You</span>
