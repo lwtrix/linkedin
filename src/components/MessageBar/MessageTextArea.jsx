@@ -13,20 +13,31 @@ import { ImDisplay } from "react-icons/im";
 import { AiOutlinePaperClip } from "react-icons/ai";
 import { MdGif } from "react-icons/md";
 import { BiSmile } from "react-icons/bi";
-
+import { RxCross1 } from "react-icons/rx";
+import { BsArrowsAngleContract } from "react-icons/bs";
 const MessageTextArea = ({ setWrite }) => {
+  const [arrow, setArrow] = useState("off");
   return (
-    <div id="messageTextArea">
+    <div id={arrow !== "off" ? "messageTextArea1" : "messageTextArea"}>
       <div className="texAreaFlex tex-justify p-3 pt-2 pb-2">
         <div>
           <h6>New message</h6>
         </div>
         <div className="texAreaFlex">
-          <div className="icon">
-            <BsArrowsAngleExpand />
+          <div
+            className="icon"
+            onClick={(e) => {
+              arrow !== "on" ? setArrow("on") : setArrow("off");
+            }}
+          >
+            {arrow !== "on" ? (
+              <BsArrowsAngleExpand />
+            ) : (
+              <BsArrowsAngleContract />
+            )}
           </div>
           <div className="icon" onClick={(e) => setWrite("off")}>
-            X
+            <RxCross1 />
           </div>
         </div>
       </div>
