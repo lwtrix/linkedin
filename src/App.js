@@ -22,8 +22,10 @@ function App() {
       <NavBar />
       <Routes>
         <Route path="/" element={<Homepage />} />
+
         <Route path="/profile" element={<Profile />} />
         <Route path="/profile/experiences" element={<EditExperiences />} />
+       
       </Routes>
     </BrowserRouter>
   );
