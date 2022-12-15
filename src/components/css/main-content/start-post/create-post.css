@@ -4,9 +4,20 @@
     margin-top: 15px;
 }
 
-.create-post img {
+.create-post .img-container {
     width: 55px;
+    height: 55px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     border-radius: 50%;
+    overflow: hidden;
+}
+
+.create-post img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
 }
 
 .create-post input {
