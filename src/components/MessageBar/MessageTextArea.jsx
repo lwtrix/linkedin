@@ -130,7 +130,9 @@ const MessageTextArea = ({ setWrite }) => {
               id="sendThis"
               type="submit"
               placeholder="Send"
-              onClick={(e) => dispatch(newTextArea(object))}
+              onClick={(e) => {
+                name !== "" ? dispatch(newTextArea(object)) : dispatch();
+              }}
             />
           </div>
           <div className="icon">
