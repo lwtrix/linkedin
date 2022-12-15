@@ -8,15 +8,18 @@
 
 .options .edit,
 .options .add {
-  color: rgb(80, 80, 80);
+  font-size: 0.85rem;
+  color: rgb(116, 116, 116);
   display: flex;
   justify-content: space-between;
 }
 
 .options .edit a,
 .options .add a {
+  font-size: 0.8rem;
+  font-weight: 500;
   text-decoration: none;
-  color: rgb(80, 80, 80);
+  color: gray;
 }
 
 .options .edit {
