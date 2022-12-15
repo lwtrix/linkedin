@@ -11,7 +11,6 @@ transition: 0.3s;
 transform: translateY(440px);
     border: solid rgb(204, 204, 204) 1px;
     box-shadow: 0px 0px 5px #888888;
-
 }
 #messageBar1{
     position: sticky;
@@ -27,6 +26,7 @@ transform: translateY(-440px);
     box-shadow: 0px 0px 5px #888888;
 
     border: solid rgb(204, 204, 204) 1px;
+
 }
 
 #messageBar .messageBarFlex{
@@ -58,6 +58,8 @@ transform: translateY(-440px);
     display: flex;
     flex-direction: column;
     align-items: center;
+
+
 }
 
 #messageBar #messageBarSearch{
@@ -210,6 +212,7 @@ margin-bottom: 20px
     display: flex;
     flex-direction: column;
     align-items: center;
+
 }
 
 #messageBar1 #messageBarSearch{
@@ -331,3 +334,8 @@ margin-bottom: 20px
 #messageBar1 .date{
     font-size: 12px;
 }
+
+#scroll-messageBar{
+    width: 100%;
+overflow-y: scroll;
+height: 300px;}
