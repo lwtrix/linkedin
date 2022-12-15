@@ -36,10 +36,12 @@
     width: 20%;
 
     text-overflow: ellipsis;
+    text-overflow: ellipsis;
     overflow: hidden;
 }
-.dropDownWork-overflow-scroll .text{
+.text-work-drop{
     height: 1.5em;
+    text-overflow: ellipsis;
 }
 .dropDownWork-subtitle1{
     border-bottom: solid rgb(211, 211, 211) 1px;

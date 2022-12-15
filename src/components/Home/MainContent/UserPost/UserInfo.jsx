@@ -2,9 +2,10 @@ import React, { useEffect } from "react";
 import "../../../css/main-content/user-post/user-info.css";
 import { AiOutlineGlobal, AiOutlinePlus } from "react-icons/ai";
 
-export const UserInfo = ({ user }) => {
-  console.log(typeof user.title);
-  const userTitle = typeof user.title === "string" ? user.title.trim() : "";
+export const UserInfo = ({ post }) => {
+  console.log(typeof post.title);
+  const userTitle =
+    typeof post.user.title === "string" ? post.user.title.trim() : "";
   const randomTimeNum = Math.floor(Math.random() * 24) + 1;
 
   return (
@@ -12,8 +13,8 @@ export const UserInfo = ({ user }) => {
       <div className="img-container">
         <img
           src={
-            user.image
-              ? user.image
+            post.user.image
+              ? post.user.image
               : "https://cdn.pixabay.com/photo/2016/08/08/09/17/avatar-1577909_960_720.png"
           }
           alt=""
@@ -21,7 +22,7 @@ export const UserInfo = ({ user }) => {
       </div>
 
       <div className="user-details">
-        <span className="user-name">{`${user.name} ${user.surname}`}</span>
+        <span className="user-name">{`${post.user.name} ${post.user.surname}`}</span>
         <span className="user-title">{userTitle}</span>
         <span className="time-passed">
           <span>{randomTimeNum === 24 ? "1d" : `${randomTimeNum}h`}</span>
