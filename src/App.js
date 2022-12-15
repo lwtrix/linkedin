@@ -22,8 +22,8 @@ function App() {
       <NavBar />
       <Routes>
         <Route path="/" element={<Homepage />} />
-
         <Route path="/profile" element={<Profile />} />
+        <Route path="/profile/:id" element={<Profile otherProfile={true}/>} />
         <Route path="/profile/experiences" element={<EditExperiences />} />
       </Routes>
       <MessageBar />

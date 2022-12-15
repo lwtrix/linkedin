@@ -31,21 +31,29 @@ export const Experience = ({ experience, canEdit, refreshExperiences }) => {
   const handleShow = () => setShowEditModal(true);
   
   const formatDates = (start, end) => {
-    const startDate = new Date(start.slice(0, 10));
-    const endDate = new Date(end.slice(0, 10));
 
-    const formatStart = `${monthNames[startDate.getUTCMonth()].slice(
+    let formatStart = null
+    let formatEnd = null
+
+    if(start) {
+    const startDate = new Date(start.slice(0, 10));
+    formatStart = `${monthNames[startDate.getUTCMonth()].slice(
       0,
       3
     )} ${startDate.getUTCFullYear()}`;
-    const formatEnd = `${monthNames[endDate.getUTCMonth()].slice(
+    }
+
+    if(end) {
+    const endDate = new Date(end.slice(0, 10));
+    formatEnd = `${monthNames[endDate.getUTCMonth()].slice(
       0,
       3
     )} ${endDate.getUTCFullYear()}`;
+    }
 
     setDate({
-      end: formatEnd,
       start: formatStart,
+      end: formatEnd,
     });
   };
 
@@ -70,7 +78,8 @@ export const Experience = ({ experience, canEdit, refreshExperiences }) => {
 
   return (
     <div className="experience">
-      {canEdit ? (
+      {console.log(date)}
+      {canEdit === true ? (
         <div className="controls">
           <div className="icon-container">
             <FiEdit2 className="icon" onClick={() => handleShow()}/>
@@ -89,7 +98,7 @@ export const Experience = ({ experience, canEdit, refreshExperiences }) => {
       <div className="experience-details">
         <span className="role">{experience.role}</span>
         <span className="company">{experience.company}</span>
-        <span className="date">{`${date.start} - ${date.end}`}</span>
+        <span className="date">{`${date.start ? date.start : ''} ${date.end ? '-' +  date.end : ''}`}</span>
         <span className="location">{experience.area}</span>
         <p className="description">{experience.description}</p>
       </div>

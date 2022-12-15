@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "../../../css/profile/ProfileDetails/profile-information.css";
 import { Col, Row } from "react-bootstrap";
 import { FiEdit2 } from "react-icons/fi";
@@ -10,13 +10,24 @@ import { EditProfileModal } from "./EditProfileModal";
 import EditUserProfileImage from "./EditUserProfileImage";
 import "../../../css/profile/pictureUploader/pictureUploader.css";
 
-export const ProfileInformation = () => {
-  const { user } = useSelector((state) => state.user);
+export const ProfileInformation = ({ user }) => {
+  const { user: currentUser } = useSelector((state) => state.user);
+  const [isOtherUser, setIsOtherUser] = useState(false);
 
   const [showEditModal, setShowEditModal] = useState(false);
   const [showEditProfilePicture, setShowEditProfilePicture] = useState(false);
   const handleClose = () => setShowEditModal(false);
   const handleShow = () => setShowEditModal(true);
+
+  useEffect(() => {
+    if (user && currentUser) {
+      if (currentUser._id !== user._id) {
+        setIsOtherUser(true);
+      } else {
+        setIsOtherUser(false);
+      }
+    }
+  }, [user, currentUser]);
 
   return (
     <>
@@ -47,32 +58,35 @@ export const ProfileInformation = () => {
             />
           </div>
           <Row className="text-container">
-            <div className="edit-btn">
-              <FiEdit2 className="edit-icon" onClick={handleShow} />
-            </div>
-            <Col className="details" xs={8}>
+            {isOtherUser === false ? (
+              <div className="edit-btn">
+                <FiEdit2 className="edit-icon" onClick={handleShow} />
+              </div>
+            ) : null}
+            <Col className="details" xs={10}>
               <h5 className="full-name">{user.name + " " + user.surname}</h5>
               <p className="title">{user.title}</p>
               <p className="location">{user.area}</p>
               <p className="connections">43 connections</p>
-              <div className="controls">
-                <a href="#" className="open-to">
-                  Open to
-                </a>
-                <a href="#" className="add-section">
-                  Add profile section
-                </a>
-                <a href="#" className="more">
-                  More
-                </a>
-              </div>
+              {isOtherUser === false ? (
+                <div className="controls">
+                  <a href="#" className="open-to">
+                    Open to
+                  </a>
+                  <a href="#" className="add-section">
+                    Add profile section
+                  </a>
+                  <a href="#" className="more">
+                    More
+                  </a>
+                </div>
+              ) : null}
             </Col>
-            <Col xs={4} className="education">
+            <Col xs={2} className="education">
               Education
             </Col>
           </Row>
-
-          <ProffesionalBanners />
+          {isOtherUser === false ? <ProffesionalBanners /> : null}
           <EditProfileModal
             user={user}
             show={showEditModal}
