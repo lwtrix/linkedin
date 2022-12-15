@@ -7,12 +7,14 @@ import { ProffesionalBanners } from "./ProffesionalBanners";
 import { useState } from "react";
 import { useSelector } from "react-redux";
 import { EditProfileModal } from "./EditProfileModal";
+import EditUserProfileImage from "./EditUserProfileImage";
+import "../../../css/profile/pictureUploader/pictureUploader.css";
 
 export const ProfileInformation = () => {
   const { user } = useSelector((state) => state.user);
 
   const [showEditModal, setShowEditModal] = useState(false);
-
+  const [showEditProfilePicture, setShowEditProfilePicture] = useState(false);
   const handleClose = () => setShowEditModal(false);
   const handleShow = () => setShowEditModal(true);
 
@@ -28,7 +30,21 @@ export const ProfileInformation = () => {
               }
               alt=""
             />
-            <img className="profile-img" src={user.image} alt="#" />
+            {showEditProfilePicture === true ? (
+              <EditUserProfileImage className="pictureUploader" />
+            ) : (
+              ""
+            )}
+            <img
+              className="profile-img"
+              src={user.image}
+              alt="#"
+              onClick={(e) => {
+                showEditProfilePicture === false
+                  ? setShowEditProfilePicture(true)
+                  : setShowEditProfilePicture(false);
+              }}
+            />
           </div>
           <Row className="text-container">
             <div className="edit-btn">
@@ -57,7 +73,7 @@ export const ProfileInformation = () => {
           </Row>
 
           <ProffesionalBanners />
-          <EditProfileModal 
+          <EditProfileModal
             user={user}
             show={showEditModal}
             handleClose={handleClose}
