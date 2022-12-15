@@ -11,14 +11,14 @@ const Homepage = () => {
   console.log(user);
 
   return (
-    <Row className="text-center m-0">
-      <Col>
+    <Row className="homepage text-center m-0">
+      <Col xs={12} sm={5} md={3}>
         <LeftSideBar />
       </Col>
-      <Col xs={5}>
+      <Col xs={12} sm={7} md={5}>
         <MainContent />
       </Col>
-      <Col xs={4}>
+      <Col md={4}>
         <NewsSidebar />
       </Col>
     </Row>
