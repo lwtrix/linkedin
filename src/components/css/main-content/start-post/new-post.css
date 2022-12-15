@@ -1,0 +1,163 @@
+.new-post {
+  /* -------------Display-------------*/
+  display: none;
+  /* -------------Display-------------*/
+  top: 100px;
+  position: fixed;
+  border-radius: 15px;
+  width: 35%;
+  padding: 1.5vh;
+  background-color: white;
+  border: solid rgb(188, 186, 186) 1px;
+}
+.creating-post p {
+  cursor: default;
+  font-size: 1.2rem;
+  font-weight: 500;
+}
+
+.new-post .creating-post {
+  display: flex;
+  justify-content: space-between;
+  margin: 0;
+  border-bottom: solid rgb(230, 230, 230) 1px;
+}
+.new-post .creating-post .icon-x {
+  cursor: pointer;
+  font-size: 25px;
+}
+
+.new-post .creating-post .icon-x:hover {
+  background-color: #ebebeb;
+  border-radius: 50%;
+}
+.new-post .profile-info {
+  margin-top: 2vh;
+  display: flex;
+}
+.new-post .profile-info .name {
+  margin-left: 2vh;
+}
+
+.new-post .profile-info .name p {
+  cursor: default;
+  font-weight: 500;
+}
+
+.new-post .profile-info p {
+  margin: 0;
+  margin-bottom: 5px;
+}
+
+.new-post .profile-info img {
+  object-fit: cover;
+  height: 9vh;
+  width: 9vh;
+}
+
+.new-post .profile-info .name .can-see {
+  font-size: 14px;
+  display: flex;
+  box-shadow: inset 0 0 0 1px rgb(75, 74, 74);
+  border: none;
+  color: gray;
+
+  border-radius: 20px;
+  background-color: white;
+}
+
+.new-post .profile-info .name .can-see:hover {
+  box-shadow: inset 0 0 0 2px rgb(75, 74, 74);
+  background-color: #ebebeb;
+}
+
+.new-post .profile-info .name .icon-wold {
+  position: relative;
+  top: 4px;
+  padding-left: 1px;
+  padding-right: 1px;
+}
+
+.new-post .talk-about #input {
+  border-radius: 0;
+  border: none;
+  cursor: text;
+  background-color: white;
+  margin-left: 0;
+}
+
+#input[type="text" i] {
+  padding: 0;
+}
+.new-post .talk-about #input::placeholder {
+  font-weight: 400;
+}
+
+.talk-about {
+  margin-top: 2vh;
+  height: 20vh;
+}
+.new-post .hashtag .moji .emoji {
+  bottom: -8px;
+
+  cursor: pointer;
+}
+
+.new-post .hashtag .moji {
+  border-radius: 50%;
+  position: relative;
+  bottom: -7px;
+  width: 5vh;
+  height: 5vh;
+}
+.new-post .hashtag .moji:hover {
+  border-radius: 50%;
+  background-color: #dbdada;
+}
+
+.new-post .hashtag .add-hashtag {
+  text-decoration: none;
+  color: #0a66c2;
+  font-weight: 600;
+  display: flex;
+
+  padding: 5px;
+
+  border-radius: 3px;
+  transition: 0.2s;
+}
+
+.new-post .hashtag .add-hashtag span {
+  padding: 5px;
+}
+
+.new-post .hashtag .add-hashtag span:hover {
+  background-color: #0a66c215;
+}
+
+.new-post .add-to-your-post {
+  justify-content: space-between;
+}
+
+.new-post .extra-icons-post {
+  padding: 2px;
+  cursor: pointer;
+  color: rgb(112, 112, 112);
+  margin: 1vh;
+  font-size: 24px;
+}
+
+.new-post .extra-icons-post:hover {
+  border-radius: 50%;
+  background-color: #dbdada;
+}
+.new-post .add-to-your-post .submiting button {
+  font-weight: 500;
+  background-color: #0a66c2;
+  padding-left: 13px;
+  padding-right: 13px;
+  color: white;
+  margin-left: 5px;
+  border: none;
+  border-radius: 30px;
+}

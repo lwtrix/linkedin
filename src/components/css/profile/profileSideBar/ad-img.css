@@ -4,12 +4,12 @@
   border-radius: 15px;
   width: 100%;
   background-color: white;
-  border: solid rgb(188, 186, 186) 1px;
+  border: solid rgb(212, 212, 212) 1px;
 }
 .ad-profile .ad-new-img {
   text-align: center;
 }
 .ad-profile .ad-new-img img {
-  width: 45vh;
-  height: 45vh;
+  width: 35vh;
+  height: 30vh;
 }

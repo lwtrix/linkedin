@@ -7,8 +7,10 @@ export const NewsSidebar = () => {
   return (
     <div className="newsSideBar">
       <Follow />
-      <Advertising />
-      <Footer />
+      <div className="sticky">
+        <Advertising />
+        <Footer />
+      </div>
     </div>
   );
 };

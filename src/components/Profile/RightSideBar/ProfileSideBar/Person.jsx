@@ -11,7 +11,7 @@ export const Person = ({ name, description, imagen }) => {
         <div>
           <div className="section-btn">
             <a href="https://www.google.pl/">
-              <p>{name}</p>
+              <p className="blue">{name}</p>
               <p className="grey">{description}</p>
             </a>
             <div className="buttton">
