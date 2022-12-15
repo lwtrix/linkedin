@@ -4,6 +4,7 @@ import { useSelector } from "react-redux";
 import { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { getUserProfile } from "../../../../redux/actions";
+import { NewPost } from "./NewPost";
 export const CreatePost = () => {
   const { user } = useSelector((state) => state.user);
   const dispatch = useDispatch();
@@ -14,6 +15,7 @@ export const CreatePost = () => {
     <div className="create-post">
       {user && <img src={user.image} />}
       <input type="text" placeholder="Start a post" />
+      <NewPost />
     </div>
   );
 };
