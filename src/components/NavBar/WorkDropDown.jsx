@@ -1,6 +1,8 @@
 import React from "react";
 import { Row, Col } from "react-bootstrap";
 import "../css/navBar/workDropDown.css";
+import { RxCross1 } from "react-icons/rx";
+
 export const WorkDropDown = ({ disappear, workDropDown }) => {
   return (
     <div id="dropDownWork-overflow-scroll">
@@ -14,7 +16,7 @@ export const WorkDropDown = ({ disappear, workDropDown }) => {
             workDropDown !== "on" ? disappear("on") : disappear("off");
           }}
         >
-          x
+          <RxCross1 />
         </div>
       </div>
       <div>
@@ -67,7 +69,7 @@ export const WorkDropDown = ({ disappear, workDropDown }) => {
                   <circle cx="20" cy="9" r="2" fill="#65c3e8"></circle>
                 </svg>
               </div>
-              <div className="text">Pubblic job offer</div>
+              <div className="text-work-drop">Pubblic job offer</div>
             </div>
             <div className="outsideElement">
               <div className="icons">

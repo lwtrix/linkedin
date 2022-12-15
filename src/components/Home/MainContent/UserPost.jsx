@@ -6,15 +6,14 @@ import { PostDescription } from "./UserPost/PostDescription";
 import { PostStats } from "./UserPost/PostStats";
 import { UserInfo } from "./UserPost/UserInfo";
 
-const UserPost = ({user}) => {
-
+const UserPost = ({ post }) => {
   return (
     <div className="user-post">
-      <UserInfo user={user}/>
-      <PostDescription />
-      <PostContent />
-      <PostStats />
-      <PostControls />
+      <UserInfo post={post} />
+      <PostDescription post={post} />
+      <PostContent post={post} />
+      <PostStats post={post} />
+      <PostControls post={post} />
     </div>
   );
 };
