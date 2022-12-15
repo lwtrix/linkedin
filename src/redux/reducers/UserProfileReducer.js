@@ -1,5 +1,6 @@
 const initialState = {
     user: null
+    
 }
 
 const userProfileReducer = (state = initialState, action) => {

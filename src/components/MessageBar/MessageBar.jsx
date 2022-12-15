@@ -9,19 +9,30 @@ import { BsFilterLeft } from "react-icons/bs";
 import { useState } from "react";
 import { MdKeyboardArrowUp } from "react-icons/md";
 import MessageTextArea from "./MessageTextArea";
+import { getUserProfile } from "../../redux/actions";
+import { useSelector } from "react-redux";
+import { useEffect } from "react";
+import { useDispatch } from "react-redux";
+import SingleChat from "./SingleChat";
+import { AiFillWechat } from "react-icons/ai";
+import { newTextArea } from "../../redux/actions";
+import newChatReducer from "../../redux/reducers/NewChatReducer";
 const MessageBar = () => {
   const [arrow, setArrow] = useState("off");
   const [write, setWrite] = useState("off");
-
+  const { user } = useSelector((state) => state.user);
+  const allChat = useSelector((store) => store.newChat.chatuser);
+  console.log(allChat);
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(getUserProfile());
+  }, []);
   return (
     <div id={arrow !== "off" ? "messageBar" : "messageBar1"}>
       <div className="messageBarFlex" id="messageBarTitle">
         <div className="messageBarFlex">
           <div id="messageBarImage">
-            <img
-              src="https://th.bing.com/th/id/R.6b0022312d41080436c52da571d5c697?rik=ejx13G9ZroRrcg&riu=http%3a%2f%2fpluspng.com%2fimg-png%2fuser-png-icon-young-user-icon-2400.png&ehk=NNF6zZUBr0n5i%2fx0Bh3AMRDRDrzslPXB0ANabkkPyv0%3d&risl=&pid=ImgRaw&r=0"
-              alt="image"
-            />
+            {user && <img src={user.image} alt="image" />}
           </div>
           <div>
             <h5>Message</h5>
@@ -62,52 +73,10 @@ const MessageBar = () => {
             <BsFilterLeft />
           </div>
         </div>
-
-        <div className="messageBarFlex singleChat">
-          <div className="chatImage">
-            <img
-              src="https://th.bing.com/th/id/R.6b0022312d41080436c52da571d5c697?rik=ejx13G9ZroRrcg&riu=http%3a%2f%2fpluspng.com%2fimg-png%2fuser-png-icon-young-user-icon-2400.png&ehk=NNF6zZUBr0n5i%2fx0Bh3AMRDRDrzslPXB0ANabkkPyv0%3d&risl=&pid=ImgRaw&r=0"
-              alt="image"
-            />
-          </div>
-          <div className="chatContent">
-            <div className="messageBarFlex-chat">
-              <div>
-                <h6 className="mb-1 mt-2">Diane Chiang</h6>
-              </div>
-              <div className="date">date</div>
-              <div className="none">
-                <RxDotsHorizontal />
-              </div>
-            </div>
-            <p>
-              Diane: hi My name is Diane: hi My name is Diane: hi My name is
-              .................................................................
-            </p>
-          </div>
-        </div>
-        <div className="messageBarFlex singleChat">
-          <div className="chatImage">
-            <img
-              src="https://th.bing.com/th/id/R.6b0022312d41080436c52da571d5c697?rik=ejx13G9ZroRrcg&riu=http%3a%2f%2fpluspng.com%2fimg-png%2fuser-png-icon-young-user-icon-2400.png&ehk=NNF6zZUBr0n5i%2fx0Bh3AMRDRDrzslPXB0ANabkkPyv0%3d&risl=&pid=ImgRaw&r=0"
-              alt="image"
-            />
-          </div>
-          <div className="chatContent">
-            <div className="messageBarFlex-chat">
-              <div>
-                <h6 className="mb-1 mt-2">Diane Chiang</h6>
-              </div>
-              <div className="date">date</div>
-              <div className="none">
-                <RxDotsHorizontal />
-              </div>
-            </div>
-            <p>
-              Diane: hi My name is Diane: hi My name is Diane: hi My name is
-              .................................................................
-            </p>
-          </div>
+        <div id="scroll-messageBar">
+          {allChat.map((object, i) => (
+            <SingleChat chatsingle={object} key={i} />
+          ))}
         </div>
       </div>
       {write !== "off" ? <MessageTextArea setWrite={setWrite} /> : <div></div>}

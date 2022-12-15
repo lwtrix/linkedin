@@ -15,8 +15,31 @@ import { MdGif } from "react-icons/md";
 import { BiSmile } from "react-icons/bi";
 import { RxCross1 } from "react-icons/rx";
 import { BsArrowsAngleContract } from "react-icons/bs";
+import { useSelector } from "react-redux";
+import { useEffect } from "react";
+import { useDispatch } from "react-redux";
+import { newTextArea } from "../../redux/actions";
 const MessageTextArea = ({ setWrite }) => {
   const [arrow, setArrow] = useState("off");
+  const [littlearrow, setLittleArrow] = useState("off");
+  const [focusText, setFocusText] = useState("off");
+  const [newchat, setNewChat] = useState(null);
+  const [name, setName] = useState("");
+  const [image, setImage] = useState("");
+  const [text, setText] = useState("");
+  const [time, setTime] = useState("");
+
+  const dispatch = useDispatch();
+  const object = {
+    name: name,
+    image: image,
+    text: text,
+    time: time,
+  };
+  useEffect(() => {
+    dispatch(newTextArea(object));
+  }, []);
+  console.log(name);
   return (
     <div id={arrow !== "off" ? "messageTextArea1" : "messageTextArea"}>
       <div className="texAreaFlex tex-justify p-3 pt-2 pb-2">
@@ -42,15 +65,48 @@ const MessageTextArea = ({ setWrite }) => {
         </div>
       </div>
       <div className="texAreaFlex bortop  p-3 pt-2 pb-2">
-        <input id="input" type="text" placeholder="Digit her a name" />
+        <input
+          id="input"
+          type="text"
+          placeholder="Digit here a name"
+          onChange={(e) => setName(e.target.value)}
+        />
       </div>
-      <div className="white-space"></div>
-      <div className="texAreaFlex tex-justify  p-3 pt-2 pb-2">
+      <div
+        className="white-space"
+        id={littlearrow !== "off" ? "flex-2" : "flex-3"}
+      ></div>
+      <div id="specialBarAnimation">
+        <div
+          id={focusText !== "off" ? "specialBarAnimationInside" : "null"}
+        ></div>
+      </div>
+      <div
+        className="texAreaFlex tex-justify  p-3 pt-2 pb-2"
+        id={littlearrow !== "off" ? "flex-1" : "flex-0"}
+      >
         <div id="textAreaSpace">
-          <textarea placeholder="Write a message..."></textarea>
+          <textarea
+            onMouseEnter={(e) => setFocusText("on")}
+            placeholder="Write a message..."
+            id="text-area-big"
+            onMouseLeave={(e) => setFocusText("off")}
+            onChange={(e) => setText(e.target.value)}
+          ></textarea>
         </div>
-        <div className="icon">
-          <MdKeyboardArrowUp />
+        <div
+          className="icon"
+          onClick={(e) => {
+            littlearrow !== "off"
+              ? setLittleArrow("off")
+              : setLittleArrow("on");
+          }}
+        >
+          {littlearrow !== "off" ? (
+            <MdKeyboardArrowUp />
+          ) : (
+            <MdKeyboardArrowDown />
+          )}
         </div>
       </div>
       <div className="texAreaFlex tex-justify bortop  p-3 pt-2 pb-2">
@@ -70,7 +126,12 @@ const MessageTextArea = ({ setWrite }) => {
         </div>
         <div className="texAreaFlex ">
           <div>
-            <input id="sendThis" type="submit" placeholder="Send" />
+            <input
+              id="sendThis"
+              type="submit"
+              placeholder="Send"
+              onClick={(e) => dispatch(newTextArea(object))}
+            />
           </div>
           <div className="icon">
             <RxDotsHorizontal />
