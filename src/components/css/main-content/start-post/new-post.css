@@ -58,6 +58,7 @@
   object-fit: cover;
   height: 9vh;
   width: 9vh;
+  border-radius: 50%;
 }
 
 .new-post .profile-info .name .can-see {
@@ -115,6 +116,7 @@
 }
 
 .new-post .hashtag {
+  margin-top: 35px;
   padding: 0 30px;
   align-items: center;
 }
@@ -127,11 +129,12 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  transition: .2s;
+  cursor: pointer;
 }
 
 .new-post .hashtag .moji .emoji {
-  font-size: 20px;
-  cursor: pointer;
+  font-size: 22px;
 }
 
 .new-post .hashtag .moji:hover {
@@ -144,15 +147,14 @@
   color: #0a66c2;
   font-weight: 600;
   display: flex;
-
-  padding: 5px;
-
   border-radius: 3px;
   transition: 0.2s;
 }
 
 .new-post .hashtag .add-hashtag span {
   padding: 5px;
+  padding: 5px 10px;
+  border-radius: 3px;
 }
 
 .new-post .hashtag .add-hashtag span:hover {
@@ -180,6 +182,8 @@
   border-radius: 50%;
   padding: 5px;
   margin-right: 12px;
+  transition: .2s;
+  cursor: pointer;
 }
 
 .new-post .extra .extra-icons-post {
