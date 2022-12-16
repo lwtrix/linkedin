@@ -26,3 +26,9 @@
   padding-top: 15px;
   font-size: 0.8rem;
 }
+#position-fixed-footer{
+  top: 420px;
+  right: 60px;
+  position: fixed;
+  width: 27%;
+}

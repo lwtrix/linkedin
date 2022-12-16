@@ -3,8 +3,11 @@ import { DiscoverMore } from "./LeftSideBar/DiscoverMore";
 import { ProfileBar } from "./LeftSideBar/ProfileBar";
 import "../css/homepage/leftSideBar/left-side-bar.css";
 import { useEffect } from "react";
+import { useState } from "react";
 export const LeftSideBar = () => {
-  /*const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+  const [classNotFix, setClassNotFix] = useState("discoverMoreStyle");
+  const [classNotFixNewBar, setClassNotFixNewBar] =
+    useState("discoverMoreStyle");
 
   useEffect(() => {
     // Attach the event listener to the window object
@@ -18,15 +21,20 @@ export const LeftSideBar = () => {
   const handleScroll = () => {
     // Get the current scroll position
     const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-
+    if (scrollTop > 465) {
+      setClassNotFix("position-fixed-sidebar");
+    } else {
+      setClassNotFix("discoverMoreStyle");
+      setClassNotFixNewBar("");
+    }
     // Check if the user has scrolled to the point where you want to change the class
-  };*/
+  };
 
   return (
     <div id="leftSideBarStyle">
       <ProfileBar />
 
-      <DiscoverMore />
+      <DiscoverMore props={classNotFix} />
     </div>
   );
 };

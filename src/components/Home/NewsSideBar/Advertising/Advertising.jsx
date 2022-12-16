@@ -2,9 +2,9 @@ import React from "react";
 import "../../../css/news-side-bar/advertising-section/advertising.css";
 import { BsThreeDots } from "react-icons/bs";
 
-export const Advertising = () => {
+export const Advertising = ({ props }) => {
   return (
-    <div className="advertising">
+    <div className="advertising" id={props}>
       <div className="dot">
         <p>Reklama</p>
         <BsThreeDots className="doty" />

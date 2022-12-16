@@ -202,3 +202,57 @@ align-items: center;
 #big-plus:hover{
   background-color: rgb(238, 237, 237);
 }
+#position-fixed-sidebar{
+  background-color: white;
+  position: fixed;
+  top: 70px;
+  width: 18.5%;
+  left: 80px;
+  border-radius: 15px;
+  border: solid rgb(188, 186, 186) 1px;
+  overflow: hidden;
+  padding: 0;
+}
+@media screen and (max-width: 950px) {
+  #position-fixed-sidebar{
+    background-color: white;
+    position: fixed;
+    top: 100px;
+    width: 16%;
+    left: 50px;
+    border-radius: 15px;
+    border: solid rgb(188, 186, 186) 1px;
+    overflow: hidden;
+    padding: 0;
+  }
+}
+@media screen and (max-width: 860px) {
+  #position-fixed-sidebar{
+    background-color: white;
+    position: fixed;
+    top: 120px;
+    width: 16%;
+    left: 50px;
+    border-radius: 15px;
+    border: solid rgb(188, 186, 186) 1px;
+    overflow: hidden;
+    padding: 0;
+  }
+}
+
+
+
+
+@media screen and (max-width: 578px) {
+  #position-fixed-sidebar{
+    background-color: white;
+    position: fixed;
+    top: 70px;
+    width: 38%;
+    left: 80px;
+    border-radius: 15px;
+    border: solid rgb(188, 186, 186) 1px;
+    overflow: hidden;
+    padding: 0;
+  }
+}

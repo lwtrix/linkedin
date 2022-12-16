@@ -7,7 +7,12 @@
   background-color: white;
   border: solid rgb(188, 186, 186) 1px;
 }
-
+#position-fixed-newbar{
+  top: 70px;
+  right: 35px;
+  position: fixed;
+  width: 30%;
+}
 .advertising .dot {
   display: flex;
   justify-content: flex-end;
