@@ -3,7 +3,7 @@ import "../../../css/news-side-bar/footer/footer.css";
 
 export const Footer = ({ props }) => {
   return (
-    <div className="footer" id={props}>
+    <div className="footer newsSideBar" id={props}>
       <div className="first-row">
         <a href="https://about.linkedin.com/">About</a>
         <a href="https://www.linkedin.com/accessibility">Accessibility</a>

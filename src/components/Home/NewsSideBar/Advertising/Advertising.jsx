@@ -4,7 +4,7 @@ import { BsThreeDots } from "react-icons/bs";
 
 export const Advertising = ({ props }) => {
   return (
-    <div className="advertising" id={props}>
+    <div className="advertising newsSideBar" id={props}>
       <div className="dot">
         <p>Reklama</p>
         <BsThreeDots className="doty" />

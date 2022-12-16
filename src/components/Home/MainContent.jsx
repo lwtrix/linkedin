@@ -1,12 +1,14 @@
 import React, { useState, useEffect } from "react";
 import "../css/main-content/main-content.css";
+import { ProfileInfo } from "./LeftSideBar/ProfileInfo";
 import JobSearch from "./MainContent/JobSearch";
+import { ProfileTop } from "./MainContent/ProfileTop/ProfileTop";
 import { StartPost } from "./MainContent/StartPost";
 import UserPost from "./MainContent/UserPost";
 
 export const MainContent = () => {
   const [posts, setPosts] = useState([]);
-  
+
   const getRandomPosts = (arr, num) => {
     const shuffled = [...arr].sort(() => 0.5 - Math.random());
 
@@ -35,6 +37,7 @@ export const MainContent = () => {
 
   return (
     <div className="main-content">
+      <ProfileTop />
       <JobSearch />
       <StartPost />
       {console.log(posts)}
