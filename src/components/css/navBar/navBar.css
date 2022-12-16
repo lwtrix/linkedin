@@ -131,13 +131,12 @@ height: 62px;
     display: flex;
     background-color: rgb(232, 244, 255);
     border-radius: 5px;
-    height: 100%;
     align-items: center;
     gap: 20px;
     padding: 5px;
     padding-inline: 20px;
-    overflow: hidden;
     margin-left: 15px;
+    position: relative;
 }
 
 #navbar-search-bar input{

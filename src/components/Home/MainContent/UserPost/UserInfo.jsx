@@ -1,31 +1,32 @@
 import React, { useEffect, useState } from "react";
 import "../../../css/main-content/user-post/user-info.css";
 import { AiOutlineGlobal, AiOutlinePlus } from "react-icons/ai";
+import { useNavigate } from "react-router-dom";
 
-export const UserInfo = ({ post }) => {
+export const UserInfo = ({ user }) => {
+  const navigate = useNavigate()
   
   const [userTitle, setUserTitle] = useState('')
   const randomTimeNum = Math.floor(Math.random() * 24) + 1;
 
 
   useEffect(() => {
-    if(post.user) {
-      console.log(typeof post.title);
-    setUserTitle(typeof post.user.title === "string" ? post.user.title.trim() : "")
+    if(user) {
+    setUserTitle(typeof user.title === "string" ? user.title.trim() : "")
     }
     
-  }, [post])
+  }, [user])
 
   return (
     <>
-      {post.user ? (
+      {user ? (
           <div className="user-info">
       
           <div className="img-container">
-            <img
+            <img onClick={() => navigate(`/profile/${user._id}`)}
               src={
-                post.user.image
-                  ? post.user.image
+                user.image
+                  ? user.image
                   : "https://cdn.pixabay.com/photo/2016/08/08/09/17/avatar-1577909_960_720.png"
               }
               alt=""
@@ -33,7 +34,7 @@ export const UserInfo = ({ post }) => {
           </div>
     
           <div className="user-details">
-            <span className="user-name">{`${post.user.name} ${post.user.surname}`}</span>
+            <span className="user-name" onClick={() => navigate(`/profile/${user._id}`)}>{`${user.name} ${user.surname}`}</span>
             <span className="user-title">{userTitle}</span>
             <span className="time-passed">
               <span>{randomTimeNum === 24 ? "1d" : `${randomTimeNum}h`}</span>
@@ -41,7 +42,7 @@ export const UserInfo = ({ post }) => {
               <AiOutlineGlobal style={{ fontSize: "15px" }} />
             </span>
           </div>
-          <a href="#" className="follow-btn">
+          <a className="follow-btn">
             <AiOutlinePlus className="plus-icon" style={{ fontSize: "18px" }} />
             Follow
           </a>

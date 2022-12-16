@@ -4,7 +4,8 @@
   top: 100px;
   position: fixed;
   border-radius: 15px;
-  width: 35%;
+  width: 50%;
+  max-width: 680px;
   background-color: white;
   border: solid rgb(188, 186, 186) 1px;
 }

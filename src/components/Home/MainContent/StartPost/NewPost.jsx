@@ -7,9 +7,11 @@ import { BiImage, BiDotsHorizontalRounded, BiWorld } from "react-icons/bi";
 import { HiDocumentText } from "react-icons/hi";
 import { MdOutlineWatchLater } from "react-icons/md";
 import { Modal, Form } from "react-bootstrap";
+import { useDispatch } from "react-redux";
 
 export const NewPost = ({ user, handleClose, show }) => {
   const [image, setImage] = useState(null);
+  const dispatch = useDispatch()
   const [newPost, setNewPost] = useState({
     text: "",
   });
@@ -42,7 +44,7 @@ export const NewPost = ({ user, handleClose, show }) => {
       console.log(_id);
       try {
         const formData = new FormData();
-        formData.append("image", image);
+        formData.append("post", image);
         if (_id) {
           submitImage(formData, _id);
         }
@@ -59,13 +61,18 @@ export const NewPost = ({ user, handleClose, show }) => {
           "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2Mzk4M2ZkMDQwNWJkYTAwMTUwOTE4NDEiLCJpYXQiOjE2NzA5MjIxOTIsImV4cCI6MTY3MjEzMTc5Mn0.HboxcDkCT7oe0t-xsSrEFfXdJbKvdPnGhJVNYl9t1A0",
       },
       method: "POST",
-      body: JSON.stringify(data),
+      body: data
     };
 
     const response = await fetch(
       `https://striveschool-api.herokuapp.com/api/posts/${id}`,
       options
     );
+    handleClose()
+    dispatch({
+      type: 'UPDATE_LATEST_POST',
+      payload: id
+    })
   };
 
   return (

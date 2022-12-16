@@ -22,15 +22,56 @@ import { Badge } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { getUserProfile } from "../../redux/actions";
+import { SearchResults } from "./Search/SearchResults";
 export const NavBar = () => {
+  const [showSearch, setShowSearch] = useState(false);
+  let [timeoutId, setTimeoutId] = useState(null);
+  const [searchResults, setSearchResults] = useState([]);
+
   const [youDropDown, setyouDropDown] = useState("off");
   const [workDropDown, setworkDropDown] = useState("off");
   const navigate = useNavigate();
   const { user } = useSelector((state) => state.user);
   const dispatch = useDispatch();
+
+  const fetchSearchResults = (term) => {
+    if (timeoutId) {
+      clearTimeout(timeoutId);
+    }
+    if (term.length) {
+      timeoutId = setTimeout(async () => {
+        const options = {
+          headers: {
+            Authorization:
+              "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2Mzk4M2ZkMDQwNWJkYTAwMTUwOTE4NDEiLCJpYXQiOjE2NzA5MjIxOTIsImV4cCI6MTY3MjEzMTc5Mn0.HboxcDkCT7oe0t-xsSrEFfXdJbKvdPnGhJVNYl9t1A0",
+          },
+        };
+
+        const res = await fetch(
+          `https://striveschool-api.herokuapp.com/api/profile/`,
+          options
+        );
+        const users = await res.json();
+
+        const filteredUsers = users.filter(
+          (user) => user.name.toLowerCase().includes(term.toLowerCase()) || user.surname.toLowerCase().includes(term.toLowerCase())
+        );
+        setSearchResults(filteredUsers);
+      }, 500);
+    } else {
+      setSearchResults([]);
+    }
+  };
+
+  const handleClickResult = () => {
+    setShowSearch(false);
+    setSearchResults([]);
+  };
+
   useEffect(() => {
     dispatch(getUserProfile());
   }, []);
+
   return (
     <Navbar expand="lg" id="navBar">
       <Container fluid>
@@ -47,8 +88,26 @@ export const NavBar = () => {
               <ImSearch />
             </div>
             <div>
-              <input type="search" placeholder="Search" id="no-outline" />
+              <input
+                type="search"
+                onChange={(e) => fetchSearchResults(e.target.value)}
+                onInput={(e) =>
+                  e.target.value.length
+                    ? setShowSearch(true)
+                    : setShowSearch(false)
+                }
+                placeholder="Search"
+                id="no-outline"
+              />
             </div>
+            {showSearch ? (
+              searchResults.length ? (
+                <SearchResults
+                  results={searchResults}
+                  handleClickResult={handleClickResult}
+                />
+              ) : (null)
+            ) : null}
           </div>
         </div>
         <div className="navBarDisplayFlex" id="navbar-flex-icons-container">

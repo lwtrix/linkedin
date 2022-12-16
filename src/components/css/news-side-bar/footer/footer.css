@@ -12,8 +12,15 @@
 }
 
 .footer {
-  margin-top: 20px;
+  margin-top: 40px;
 }
+
+@media only screen and (min-width: 990px) and (max-width: 1135px) {
+  .footer {
+    margin-top: 60px;
+  }
+}
+
 .footer .corporation .linkeIn {
   display: flex;
   justify-content: center;

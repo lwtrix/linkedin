@@ -45,7 +45,7 @@ export const ExperienceSection = ({ userId }) => {
     if(user) {
     getExperiences(userId);
     }
-  }, [user]);
+  }, [userId]);
 
   return (
     <div className="experience-section">

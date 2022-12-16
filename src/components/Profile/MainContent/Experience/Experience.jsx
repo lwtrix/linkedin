@@ -98,7 +98,7 @@ export const Experience = ({ experience, canEdit, refreshExperiences }) => {
       <div className="experience-details">
         <span className="role">{experience.role}</span>
         <span className="company">{experience.company}</span>
-        <span className="date">{`${date.start ? date.start : ''} ${date.end ? '-' +  date.end : ''}`}</span>
+        <span className="date">{`${date.start ? date.start : ''} ${date.end ? '- ' +  date.end : ''}`}</span>
         <span className="location">{experience.area}</span>
         <p className="description">{experience.description}</p>
       </div>

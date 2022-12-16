@@ -1,6 +1,6 @@
 const initialState = {
-    user: null
-    
+    user: null,
+    latestPost: null
 }
 
 const userProfileReducer = (state = initialState, action) => {
@@ -10,6 +10,11 @@ const userProfileReducer = (state = initialState, action) => {
                 ...state,
                 user: action.payload
             }
+        case 'UPDATE_LATEST_POST':
+            return {
+                ...state,
+                latestPost: action.payload
+            }    
         default: 
             return {
                 ...state

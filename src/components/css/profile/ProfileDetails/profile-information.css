@@ -2,7 +2,6 @@
     background-color: white;
     border-radius: 10px;
     border: 1px solid rgba(204, 204, 204, 0.664);
-    overflow: hidden;
 }
 
 .profile-information .images {
@@ -20,14 +19,30 @@
     border-top-right-radius: 10px;
 }
 
-.profile-information .images .profile-img {
+.profile-information .images .img-container {
     position: absolute;
     top: 50%;
-    left: 0;
-    width: 165px;
+    left: 10%;
+    width: 145px;
+    height: 145px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     border-radius: 50%;
     border: 3px solid white;
-    margin-left: 25px;
+}
+
+@media  screen and (min-width: 1195px) {
+    .profile-information .images .img-container {
+        width: 165px;
+        height: 165px;
+    }
+}
+
+.profile-information .images .profile-img {
+    width: 135%;
+    height: auto;
 }
 
 .profile-information .text-container {
@@ -73,11 +88,18 @@
     font-size: 14px;
 }
 
+.profile-information .text-container .details .bio {
+    font-size: 14px;
+    color: #777;
+    margin-top: 5px;
+}
+
 .profile-information .text-container .details .connections {
     font-size: 14px;
     color: #0a66c2;
     font-weight: 600;
     margin-bottom: 10px;
+    padding-bottom: 25px;
 }
 
 .profile-information .text-container .details .connections:hover {

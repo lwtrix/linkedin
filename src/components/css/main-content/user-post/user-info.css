@@ -3,6 +3,7 @@
     padding: 0 20px;
     padding-top: 15px;
     position: relative;
+    cursor: pointer;
 }
 
 .user-info .img-container {

@@ -46,26 +46,24 @@ export const ProfileInformation = ({ user }) => {
             ) : (
               ""
             )}
-            <img
-              className="profile-img"
-              src={user.image}
-              alt="#"
-              onClick={(e) => {
-                showEditProfilePicture === false
-                  ? setShowEditProfilePicture(true)
-                  : setShowEditProfilePicture(false);
-              }}
-            />
+            <div className="img-container">
+              <img
+                className="profile-img"
+                src={user.image}
+                alt="#"
+                onClick={(e) => {
+                  showEditProfilePicture === false
+                    ? setShowEditProfilePicture(true)
+                    : setShowEditProfilePicture(false);
+                }}
+              />
+            </div>
           </div>
           <Row className="text-container">
-            {isOtherUser === false ? (
-              <div className="edit-btn">
-                <FiEdit2 className="edit-icon" onClick={handleShow} />
-              </div>
-            ) : null}
             <Col className="details" xs={10}>
               <h5 className="full-name">{user.name + " " + user.surname}</h5>
               <p className="title">{user.title}</p>
+              {isOtherUser ? <p className="bio">{user.bio}</p> : null}
               <p className="location">{user.area}</p>
               <p className="connections">43 connections</p>
               {isOtherUser === false ? (
@@ -83,7 +81,11 @@ export const ProfileInformation = ({ user }) => {
               ) : null}
             </Col>
             <Col xs={2} className="education">
-              Education
+              {isOtherUser === false ? (
+                <div className="edit-btn">
+                  <FiEdit2 className="edit-icon" onClick={handleShow} />
+                </div>
+              ) : null}
             </Col>
           </Row>
           {isOtherUser === false ? <ProffesionalBanners /> : null}
