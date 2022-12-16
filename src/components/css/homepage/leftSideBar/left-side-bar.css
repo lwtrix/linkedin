@@ -198,7 +198,7 @@
   background-color: rgb(238, 237, 237);
 }
 
-#position-fixed-sidebar{
+#position-fixed-sidebar {
   background-color: white;
   position: fixed;
   top: 70px;
@@ -209,12 +209,39 @@
   overflow: hidden;
   padding: 0;
 }
-@media screen and (max-width: 950px) {
-  #position-fixed-sidebar{
+@media screen and (max-width: 1300px) {
+  #position-fixed-sidebar {
     background-color: white;
     position: fixed;
     top: 100px;
-    width: 16%;
+    width: 20%;
+    left: 40px;
+    border-radius: 15px;
+    border: solid rgb(188, 186, 186) 1px;
+    overflow: hidden;
+    padding: 0;
+  }
+}
+@media screen and (max-width: 1130px) {
+  #position-fixed-sidebar {
+    background-color: white;
+    position: fixed;
+    top: 100px;
+    width: 20%;
+    left: 50px;
+    border-radius: 15px;
+    border: solid rgb(188, 186, 186) 1px;
+    overflow: hidden;
+    padding: 0;
+  }
+}
+
+@media screen and (max-width: 980px) {
+  #position-fixed-sidebar {
+    background-color: white;
+    position: fixed;
+    top: 100px;
+    width: 25%;
     left: 50px;
     border-radius: 15px;
     border: solid rgb(188, 186, 186) 1px;
@@ -223,11 +250,11 @@
   }
 }
 @media screen and (max-width: 860px) {
-  #position-fixed-sidebar{
+  #position-fixed-sidebar {
     background-color: white;
     position: fixed;
-    top: 120px;
-    width: 16%;
+    top: 100px;
+    width: 25%;
     left: 50px;
     border-radius: 15px;
     border: solid rgb(188, 186, 186) 1px;
@@ -236,20 +263,8 @@
   }
 }
 
-
-
-
-@media screen and (max-width: 578px) {
-  #position-fixed-sidebar{
-    background-color: white;
-    position: fixed;
-    top: 70px;
-    width: 38%;
-    left: 80px;
-    border-radius: 15px;
-    border: solid rgb(188, 186, 186) 1px;
-    overflow: hidden;
-    padding: 0;
+@media screen and (max-width: 767px) {
+  #leftSideBarStyle {
+    display: none !important;
   }
 }
-
