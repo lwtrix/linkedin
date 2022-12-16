@@ -42,10 +42,6 @@
   background-color: rgb(238, 237, 237);
 }
 
-.newsSideBar {
-  width: 95%;
-}
-
 @media screen and (max-width: 930px) {
   .newsSideBar {
     display: none !important;
