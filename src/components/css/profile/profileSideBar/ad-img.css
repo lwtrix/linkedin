@@ -8,8 +8,12 @@
 }
 .ad-profile .ad-new-img {
   text-align: center;
+  overflow: hidden;
+  border-radius: 15px;
 }
+
 .ad-profile .ad-new-img img {
   width: 35vh;
-  height: 30vh;
+  height: 35vh;
+  object-fit: cover;
 }

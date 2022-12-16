@@ -3,6 +3,7 @@
 }
 
 .person-body {
+  padding-right: 1rem;
   display: flex;
   flex-direction: row;
 }

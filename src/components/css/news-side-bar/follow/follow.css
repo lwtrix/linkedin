@@ -45,3 +45,9 @@
 .newsSideBar {
   width: 95%;
 }
+
+@media screen and (max-width: 930px) {
+  .newsSideBar {
+    display: none;
+  }
+}
