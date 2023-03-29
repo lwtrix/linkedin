@@ -11,16 +11,10 @@ export const ProfileDetails = ({otherProfile}) => {
   const { user: currentUser } = useSelector((state) => state.user);
 
   const getUser = async () => {
-    const options = {
-      headers: {
-        Authorization:
-          "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2Mzk4M2ZkMDQwNWJkYTAwMTUwOTE4NDEiLCJpYXQiOjE2NzA5MjIxOTIsImV4cCI6MTY3MjEzMTc5Mn0.HboxcDkCT7oe0t-xsSrEFfXdJbKvdPnGhJVNYl9t1A0",
-      },
-    };
+    const baseEndpoint = process.env.REACT_APP_BE_URL
 
     const res = await fetch(
-      `https://striveschool-api.herokuapp.com/api/profile/${params.id}`,
-      options
+      `${baseEndpoint}/users/${params.id}`
     );
     const userData = await res.json();
     setUser(userData);

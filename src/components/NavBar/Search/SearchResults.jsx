@@ -13,6 +13,7 @@ export const SearchResults = ({results, handleClickResult}) => {
 
   return (
     <div className='search-results'>
+      {console.log(results)}
         {results.map(user => (
             <SearchResult user={user} handleClick={handleClick}/>
         ))}

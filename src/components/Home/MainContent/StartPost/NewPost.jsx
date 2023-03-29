@@ -28,23 +28,21 @@ export const NewPost = ({ user, handleClose, show }) => {
       const options = {
         headers: {
           "Content-Type": "application/json",
-          Authorization:
-            "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2Mzk4M2ZkMDQwNWJkYTAwMTUwOTE4NDEiLCJpYXQiOjE2NzA5MjIxOTIsImV4cCI6MTY3MjEzMTc5Mn0.HboxcDkCT7oe0t-xsSrEFfXdJbKvdPnGhJVNYl9t1A0",
         },
         method: "POST",
         body: JSON.stringify(newPost),
       };
 
+      const baseEndpoint = process.env.REACT_APP_BE_URL
+
       const res = await fetch(
-        "https://striveschool-api.herokuapp.com/api/posts/",
-        options
+        `${baseEndpoint}/posts`, options
       );
 
       const { _id } = await res.json();
-      console.log(_id);
       try {
         const formData = new FormData();
-        formData.append("post", image);
+        formData.append("image", image);
         if (_id) {
           submitImage(formData, _id);
         }
@@ -56,17 +54,14 @@ export const NewPost = ({ user, handleClose, show }) => {
 
   const submitImage = async (data, id) => {
     const options = {
-      headers: {
-        Authorization:
-          "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2Mzk4M2ZkMDQwNWJkYTAwMTUwOTE4NDEiLCJpYXQiOjE2NzA5MjIxOTIsImV4cCI6MTY3MjEzMTc5Mn0.HboxcDkCT7oe0t-xsSrEFfXdJbKvdPnGhJVNYl9t1A0",
-      },
       method: "POST",
       body: data
     };
 
-    const response = await fetch(
-      `https://striveschool-api.herokuapp.com/api/posts/${id}`,
-      options
+    const baseEndpoint = process.env.REACT_APP_BE_URL
+
+    const res = await fetch(
+      `${baseEndpoint}/posts/${id}/upload/image`, options
     );
     handleClose()
     dispatch({
@@ -77,7 +72,6 @@ export const NewPost = ({ user, handleClose, show }) => {
 
   return (
     <Modal show={show} onHide={handleClose}>
-      {console.log(newPost)}
       <div className="new-post">
         <div className="creating-post">
           <p>Create Post</p>

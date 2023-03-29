@@ -1,17 +1,12 @@
 export const getUserProfile = () => {
   return async (dispatch, getState) => {
-    const options = {
-      headers: {
-        Authorization:
-          "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2Mzk4M2ZkMDQwNWJkYTAwMTUwOTE4NDEiLCJpYXQiOjE2NzA5MjIxOTIsImV4cCI6MTY3MjEzMTc5Mn0.HboxcDkCT7oe0t-xsSrEFfXdJbKvdPnGhJVNYl9t1A0",
-      },
-    };
+    const baseEndpoint = process.env.REACT_APP_BE_URL
 
     const res = await fetch(
-      "https://striveschool-api.herokuapp.com/api/profile/me",
-      options
+      `${baseEndpoint}/users/63ce67c5b87b8603d6e1fb31`
     );
     const userData = await res.json();
+    console.log(userData)
     dispatch({
       type: "GET_USER_PROFILE",
       payload: userData,
@@ -30,13 +25,11 @@ export const newTextArea = (userName) => {
 
 export const submitEditProfile = (e, name, surname, title, bio, area) => {
   e.preventDefault();
-
+  const baseEndpoint = process.env.REACT_APP_BE_URL
   const options = {
     method: "PUT",
     headers: {
       "Content-Type": "application/json",
-      Authorization:
-        "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2Mzk4M2ZkMDQwNWJkYTAwMTUwOTE4NDEiLCJpYXQiOjE2NzA5MjIxOTIsImV4cCI6MTY3MjEzMTc5Mn0.HboxcDkCT7oe0t-xsSrEFfXdJbKvdPnGhJVNYl9t1A0",
     },
     body: JSON.stringify({
       name: name,
@@ -48,10 +41,9 @@ export const submitEditProfile = (e, name, surname, title, bio, area) => {
   };
   return async (dispatch, getState) => {
     const res = await fetch(
-      "https://striveschool-api.herokuapp.com/api/profile/",
+      `${baseEndpoint}/users/63ce67c5b87b8603d6e1fb31`,
       options
     );
-    console.log(await res.json());
 
     dispatch(getUserProfile());
   };

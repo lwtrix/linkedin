@@ -31,21 +31,20 @@ export const EditExperienceModal = ({
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    const options = {
+    const config = {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
-        Authorization:
-          "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2Mzk4M2ZkMDQwNWJkYTAwMTUwOTE4NDEiLCJpYXQiOjE2NzA5MjIxOTIsImV4cCI6MTY3MjEzMTc5Mn0.HboxcDkCT7oe0t-xsSrEFfXdJbKvdPnGhJVNYl9t1A0",
       },
       body: JSON.stringify(editExperience),
     };
 
     if (user) {
-      const res = await fetch(
-        `https://striveschool-api.herokuapp.com/api/profile/${user._id}/experiences/${experience._id}`,
-        options
-      );
+      const baseEndpoint = process.env.REACT_APP_BE_URL
+
+    const res = await fetch(
+      `${baseEndpoint}/experiences/63ce67c5b87b8603d6e1fb31/${experience._id}`, config
+    );
 
       refreshExperiences();
     }

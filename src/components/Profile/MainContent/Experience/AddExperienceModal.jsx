@@ -27,14 +27,14 @@ export const AddExperienceModal = ({ handleClose, show, user, refreshExperiences
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
-            'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2Mzk4M2ZkMDQwNWJkYTAwMTUwOTE4NDEiLCJpYXQiOjE2NzA5MjIxOTIsImV4cCI6MTY3MjEzMTc5Mn0.HboxcDkCT7oe0t-xsSrEFfXdJbKvdPnGhJVNYl9t1A0'
       },
       body: JSON.stringify(newExperience),
     };
 
+    const baseEndpoint = process.env.REACT_APP_BE_URL
+
     const res = await fetch(
-      `https://striveschool-api.herokuapp.com/api/profile/${user._id}/experiences`,
-      options
+      `${baseEndpoint}/experiences/63ce67c5b87b8603d6e1fb31`, options
     );
     
     refreshExperiences()

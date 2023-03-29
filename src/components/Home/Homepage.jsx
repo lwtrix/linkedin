@@ -8,7 +8,6 @@ import { useSelector } from "react-redux";
 
 const Homepage = () => {
   const user = useSelector((state) => state.user);
-  console.log(user);
 
   return (
     <Row className="homepage text-center m-0">

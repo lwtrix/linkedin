@@ -40,21 +40,14 @@ export const NavBar = () => {
     }
     if (term.length) {
       timeoutId = setTimeout(async () => {
-        const options = {
-          headers: {
-            Authorization:
-              "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2Mzk4M2ZkMDQwNWJkYTAwMTUwOTE4NDEiLCJpYXQiOjE2NzA5MjIxOTIsImV4cCI6MTY3MjEzMTc5Mn0.HboxcDkCT7oe0t-xsSrEFfXdJbKvdPnGhJVNYl9t1A0",
-          },
-        };
+        const baseEndpoint = process.env.REACT_APP_BE_URL;
 
-        const res = await fetch(
-          `https://striveschool-api.herokuapp.com/api/profile/`,
-          options
-        );
+        const res = await fetch(`${baseEndpoint}/users`);
         const users = await res.json();
+        console.log(users);
 
         const filteredUsers = users.filter(
-          (user) => user.name.toLowerCase().includes(term.toLowerCase()) || user.surname.toLowerCase().includes(term.toLowerCase())
+          (user) => user.name?.includes(term) || user.surname?.includes(term)
         );
         setSearchResults(filteredUsers);
       }, 500);
@@ -106,7 +99,7 @@ export const NavBar = () => {
                   results={searchResults}
                   handleClickResult={handleClickResult}
                 />
-              ) : (null)
+              ) : null
             ) : null}
           </div>
         </div>
@@ -175,19 +168,16 @@ export const NavBar = () => {
             <div className="navBarIcons-text">Notifications</div>
           </div>
           <div className="navBarIcons" id="youPositionRelative">
-            <div className="navBarIcons-icon imageContainer mt-2">
+            <div
+              className="navBarIcons-icon imageContainer mt-2"
+              onClick={(e) => {
+                youDropDown !== "on"
+                  ? setyouDropDown("on")
+                  : setyouDropDown("off");
+              }}
+            >
               <div className="imageContainer">
-                {user && (
-                  <img
-                    alt="profile"
-                    src={user.image}
-                    onClick={(e) => {
-                      youDropDown !== "on"
-                        ? setyouDropDown("on")
-                        : setyouDropDown("off");
-                    }}
-                  />
-                )}
+                {user && <img alt="profile" src={user.image} />}
               </div>
             </div>
             <div className="navBarIcons-text">

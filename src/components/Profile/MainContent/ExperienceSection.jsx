@@ -24,21 +24,14 @@ export const ExperienceSection = ({ userId }) => {
     } else {
       setIsOtherUser(true);
     }
-    const options = {
-      headers: {
-        Authorization:
-          "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2Mzk4M2ZkMDQwNWJkYTAwMTUwOTE4NDEiLCJpYXQiOjE2NzA5MjIxOTIsImV4cCI6MTY3MjEzMTc5Mn0.HboxcDkCT7oe0t-xsSrEFfXdJbKvdPnGhJVNYl9t1A0",
-      },
-    };
-    if (user) {
-      const res = await fetch(
-        `https://striveschool-api.herokuapp.com/api/profile/${id}/experiences`,
-        options
-      );
+    const baseEndpoint = process.env.REACT_APP_BE_URL
+
+    const res = await fetch(
+      `${baseEndpoint}/experiences/63ce67c5b87b8603d6e1fb31`
+    );
       const data = await res.json();
 
       setExperiences(data);
-    }
   };
 
   useEffect(() => {
@@ -49,7 +42,6 @@ export const ExperienceSection = ({ userId }) => {
 
   return (
     <div className="experience-section">
-      {console.log(experiences)}
       <h3>Experience</h3>
       {isOtherUser === false ? (
         <div className="controls">
