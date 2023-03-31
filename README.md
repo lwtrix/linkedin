@@ -9,3 +9,7 @@
 - Post on feed
 - Search users
 - Edit profile and add/edit experiences
+
+## Contributors
+@Francescostefan1998
+@ArmndoHg
